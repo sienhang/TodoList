@@ -1,0 +1,96 @@
+将es7和es6语法编译成es5语法
+cnpm install babel-register babel-polyfill --save
+cnpm install babel-preset-es2015 babel-preset-stage-0 --save
+文件.babelrc移入文件夹
+require('babel-register')
+require('babel-polyfill')
+require('./app')
+
+
+
+
+url直接请求默认是get请求
+
+
+
+mongobooster可视化软件 数据库没有值，则不显示数据库
+插入第一个值，则默认建表
+
+
+
+浏览器一个端口只能干一件事
+
+
+
+设置允许跨域(端口不同，IP地址不同。。。。)
+cnpm install koa-cors --save
+import cors from 'koa-cors';
+app.use(cors());
+
+
+
+发送ajax请求需要有返回值，否则会有404报错
+
+
+
+发送请求时，浏览器是以字符串的形式发送数据，需要body解析成对象数据
+cnpm install koa-bodyparser@next --save
+import bodyParer from 'koa-bodyparser'
+app.use(bodyParer());
+
+
+
+
+koa是用来写后台的，是node语法。
+koa1用的是generator函数，理解复杂
+koa2开始支持async await函数，但没有抛弃koa1的写法
+所以需要安装新版本的koa 和 koa-router 才支持新的语法。
+cnpm install koa@next koa-router@next --save
+
+
+static文件夹用来放静态资源，比如：css、js、图片、字体、视频，这里放前台打包好的app.min.js和vendor.js
+views文件夹用来放渲染的页面，这里放index.html，index.html中引入了app.min.js和vendor.js文件
+安装：
+cnpm install koa-views koa-static swig --save
+
+渲染页面：
+import views from 'koa-views'
+app.use(views(__dirname + '/views', {
+  map: {
+    html: 'swig'
+  }
+}));
+将所有的get请求都导向主页：
+APIRouter.get('/',	async (ctx)=>{
+	await ctx.render('index.html')
+})
+
+初始化静态资源：
+import serve from 'koa-static'
+app.use(serve('static'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
