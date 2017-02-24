@@ -3,7 +3,7 @@ import task from './task'
 
 function connectDatabase(){
 
-	let DB_URL = 'mongodb://task:hse123456@60.205.176.58:27017/task';
+	let DB_URL = 'mongodb://xxxxx/task';
 	//连接
 	mongoose.connect(DB_URL);
 	//连接成功
